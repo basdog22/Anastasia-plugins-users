@@ -1,0 +1,42 @@
+@if(Auth::guest())
+{{ Form::open(array('url'=>'signup', 'class'=>'form-newpage')) }}
+{{honey_pot()}}
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <h4>{{ t('users::strings.register') }}</h4>
+        </div>
+        <div class="panel-body">
+            <div class="form-group">
+                <label for="email">{{t('strings.email')}}</label>
+                <input id="email" type="email" value="" name="email" class="form-control" placeholder="{{t('strings.email')}}" />
+            </div>
+            <div class="form-group">
+                <label for="password">{{t('strings.password')}}</label>
+                <input id="password" type="password" value="" name="password" class="form-control" placeholder="{{t('strings.password')}}" />
+            </div>
+            <div class="form-group">
+                <label for="password2">{{t('users::strings.password_again')}}</label>
+                <input id="password2" type="password" value="" name="password2" class="form-control" placeholder="{{t('users::strings.password_again')}}" />
+            </div>
+            {{ fire_and_show('registration.form.extra_fields') }}
+        </div>
+        <div class="panel-footer clearfix">
+            <div class="col-md-4">
+                {{ Form::submit(t('users::strings.sign_up'), array('class'=>'btn btn-large btn-primary'))}}
+                {{ fire_and_show('registration.form.extra_btns') }}
+            </div>
+            <div class="col-md-8">
+                {{t('users::strings.already_member_question')}} <a href="{{url('login')}}">{{t('strings.login')}}</a>
+            </div>
+
+        </div>
+
+    </div>
+{{ Form::close() }}
+@else
+
+@endif
+
+
+

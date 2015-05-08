@@ -1,0 +1,1 @@
+{{ Widget::show(t('users::strings.latest_users'),usersToList(\User::orderBy('created_at','DESC')->take(10)->get())) }}

@@ -1,0 +1,33 @@
+{{ Form::open(array('url'=>'resetcode', 'class'=>'form-newpage')) }}
+{{honey_pot()}}
+<div class="panel panel-primary">
+
+    <div class="panel-heading">
+        <h4>{{ t('users::strings.reset_code') }}</h4>
+    </div>
+    <div class="panel-body">
+        <div class="form-group">
+            <label for="code">{{t('users::strings.code')}}</label>
+            <input id="code" type="text" value="" name="code" class="form-control" placeholder="{{t('users::strings.code')}}" />
+        </div>
+        <div class="form-group">
+            <label for="password">{{t('strings.password')}}</label>
+            <input id="password" type="password" value="" name="password" class="form-control" placeholder="{{t('strings.password')}}" />
+        </div>
+        <div class="form-group">
+            <label for="password2">{{t('users::strings.password_again')}}</label>
+            <input id="password2" type="password" value="" name="password2" class="form-control" placeholder="{{t('users::strings.password_again')}}" />
+        </div>
+
+    </div>
+    <div class="panel-footer clearfix">
+        <div class="col-md-4">
+            {{ Form::submit(t('users::strings.change_password'), array('class'=>'btn btn-large btn-primary'))}}
+        </div>
+        <div class="col-md-8">
+            <p class="text-muted">{{ t('users::strings.reset_code_info') }}</p>
+        </div>
+    </div>
+
+</div>
+{{ Form::close() }}

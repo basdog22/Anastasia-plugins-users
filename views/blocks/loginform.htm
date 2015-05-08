@@ -1,0 +1,46 @@
+@if(Auth::guest())
+{{ Form::open(array('url'=>'login', 'class'=>'form-newpage')) }}
+{{honey_pot()}}
+<div class="panel panel-primary">
+
+    <div class="panel-heading">
+        <h4>{{ t('strings.login') }}</h4>
+    </div>
+    <div class="panel-body">
+        <div class="form-group">
+            <label for="email">{{t('strings.email')}}</label>
+            <input id="email" type="email" value="" name="email" class="form-control" placeholder="{{t('strings.email')}}" />
+        </div>
+        <div class="form-group">
+            <label for="password">{{t('strings.password')}}</label>
+            <input id="password" type="password" value="" name="password" class="form-control" placeholder="{{t('strings.password')}}" />
+        </div>
+        {{ fire_and_show('login.form.extra_fields') }}
+    </div>
+    <div class="panel-footer clearfix">
+        <div class="col-md-4">
+            {{ Form::submit(t('strings.login'), array('class'=>'btn btn-large btn-primary'))}}
+            {{ fire_and_show('login.form.extra_btns') }}
+        </div>
+        <div class="col-md-8">
+            <a class="center-block" href="{{ url('signup') }}">{{t('users::strings.register')}}</a>
+            <a class="center-block" href="{{ url('forgot') }}">{{t('users::strings.forgot_password')}}</a>
+        </div>
+
+    </div>
+
+</div>
+{{ Form::close() }}
+@else
+<div class="panel panel-primary">
+
+    <div class="panel-heading">
+        <h4>{{ t('strings.welcome') }}</h4>
+    </div>
+    <div class="panel-body">
+        {{ t('strings.welcome') }} {{ Auth::user()->full_name }} <a href="{{ url('logout') }}">{{ t('strings.logout') }}</a>
+        {{ fire_and_show('login.form.loggedin') }}
+    </div>
+
+</div>
+@endif

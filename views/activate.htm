@@ -1,0 +1,25 @@
+{{ Form::open(array('url'=>'activate', 'class'=>'form-newpage')) }}
+{{honey_pot()}}
+<div class="panel panel-primary">
+
+    <div class="panel-heading">
+        <h4>{{ t('users::strings.activate') }}</h4>
+    </div>
+    <div class="panel-body">
+        <div class="form-group">
+            <label for="code">{{t('users::strings.code')}}</label>
+            <input id="code" type="text" value="" name="code" class="form-control" placeholder="{{t('users::strings.code')}}" />
+        </div>
+
+    </div>
+    <div class="panel-footer clearfix">
+        <div class="col-md-4">
+            {{ Form::submit(t('users::strings.activate'), array('class'=>'btn btn-large btn-primary'))}}
+        </div>
+        <div class="col-md-8">
+            <p class="text-muted">{{ t('users::strings.activate_code_info') }}</p>
+        </div>
+    </div>
+
+</div>
+{{ Form::close() }}

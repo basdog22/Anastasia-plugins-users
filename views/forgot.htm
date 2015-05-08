@@ -1,0 +1,27 @@
+{{ Form::open(array('url'=>'forgot', 'class'=>'form-newpage')) }}
+{{honey_pot()}}
+<div class="panel panel-primary">
+
+    <div class="panel-heading">
+        <h4>{{ t('users::strings.forgot') }}</h4>
+    </div>
+    <div class="panel-body">
+        <div class="form-group">
+            <label for="email">{{t('strings.email')}}</label>
+            <input id="email" type="email" value="" name="email" class="form-control" placeholder="{{t('strings.email')}}" />
+        </div>
+        {{ fire_and_show('recover.form.extra_fields') }}
+    </div>
+    <div class="panel-footer clearfix">
+        <div class="col-md-4">
+            {{ Form::submit(t('strings.login'), array('class'=>'btn btn-large btn-primary'))}}
+            {{ fire_and_show('recover.form.extra_btns') }}
+        </div>
+        <div class="col-md-8">
+            <p class="text-muted">{{ t('users::strings.recover_form_instructions') }}</p>
+        </div>
+
+    </div>
+
+</div>
+{{ Form::close() }}
